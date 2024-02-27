@@ -1,0 +1,57 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{personal}
+
+\usepackage{amsmath}
+\usepackage{xparse}
+\usepackage{mathrsfs}
+
+\DeclareMathOperator{\Dom}{Dom}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\inte}{int}
+
+% Number Sets
+\newcommand{\N}{\mathbb{N}}        % N = {0, 1, ...}
+\newcommand{\NO}{\mathbb{N}^{> 0}} % N = {1, ...}
+\newcommand{\Z}{\mathbb{Z}}        % Z = {..., -1, 0, 1, ...}
+\newcommand{\Q}{\mathbb{Q}}        % Rational Numbers
+\newcommand{\R}{\mathbb{R}}        % Real Numbers
+\newcommand{\C}{\mathbb{C}}        % Complex Numbers
+
+\newcommand{\iso}{\cong}                           % ~=
+\newcommand{\dsum}{\oplus}                         % Direct sum
+\newcommand{\xn}{\{x_n\}_{n \in \mathbb{N}}}       % Sequence
+\newcommand{\xnj}{\{x_{n_j}\}_{j \in \mathbb{N}}}  % Subsequence
+\newcommand{\dual}[1]{#1^{\star}}                  % Dual of argument
+\newcommand{\inner}[2]{\langle #1, #2 \rangle}     % <#1, #2>
+\newcommand{\infnorm}[1][\cdot]{||#1||_{\infty}}   % Norma Infinito
+\newcommand{\ellb}{\overline{\ell}}                % l cursiva con barra arriba
+
+\newcommand{\front}{\partial}                      % Frontera
+\newcommand{\closure}[1]{\overline{#1}}            % Cerradura
+
+% Topologia
+\newcommand{\topo}{\mathscr{T}}  % Topologia
+\newcommand{\Ne}{\mathcal{N}}    % Neighbourhood System
+\newcommand{\Nc}{\mathcal{N}_c}  % Closed Neighbourhood System
+\newcommand{\Na}{\mathcal{N}_a}  % Open Neighbourhood System
+
+\renewcommand{\smash}{\wedge}
+
+\newcommand{\gof}{g \circ f} % g o f
+
+\renewcommand{\P}{\mathbb{P} [x]} % Polynomials over inderterminate X
+\renewcommand{\phi}{\varphi}      % Change \phi to \varphi
+
+\newcommand\restr[3]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2}^{#3} % this is the delimiter
+  }}
+
+
+\NewDocumentCommand{\evalat}{sO{\big}mm}{%
+  \IfBooleanTF{#1}
+   {\mleft. #3 \mright|_{#4}}
+   {#3#2|_{#4}}%
+}
